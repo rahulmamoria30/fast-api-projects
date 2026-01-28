@@ -108,3 +108,20 @@ my_computer = Computer("Dell", "XPS 13", 2020)
 
 # print(my_computer.description())
 # print(f"My computer is {my_computer.computer_age(2024)} years old.")
+
+
+def custom_dec(text:str = "+"):
+    def parent(func):
+        def wrapper():
+            print(text * 10)
+            func()
+            print(text * 10)
+        return wrapper
+    return parent
+  
+
+@custom_dec("-")
+def hello():
+    print("I am the function")
+
+hello()
